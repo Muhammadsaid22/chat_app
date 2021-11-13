@@ -18,6 +18,16 @@ class MyApp extends StatelessWidget {
       title: 'Chat App',
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        backgroundColor: Colors.tealAccent,
+        accentColor: Colors.cyan,
+        accentColorBrightness: Brightness.dark,
+        buttonTheme: ButtonTheme.of(context).copyWith(
+          buttonColor: Colors.teal,
+          textTheme: ButtonTextTheme.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20)
+          )
+        )
       ),
       home: AuthScreen(),
     );
