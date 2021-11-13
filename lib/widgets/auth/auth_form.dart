@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(String eMail, String userName, String password, bool isLogin, BuildContext ctx) submitFn;
-
-  AuthForm(this.submitFn);
+  final bool isLoading;
+  AuthForm(this.submitFn, this.isLoading);
 
   @override
   _AuthFormState createState() => _AuthFormState();
@@ -54,7 +54,7 @@ class _AuthFormState extends State<AuthForm> {
                       labelText: 'Email address'
                     ),
                     validator: (value) {
-                      if(value!.isEmpty || value.contains("@")) {
+                      if(value!.isEmpty || !value.contains("@")) {
                         return "Please enter a valid email address";
                       }
                       return null;
@@ -95,11 +95,11 @@ class _AuthFormState extends State<AuthForm> {
                     },
                   ),
                   SizedBox(height: 12),
-                  RaisedButton(
+                  widget.isLoading ? CircularProgressIndicator() : RaisedButton(
                     child: Text(_isLogin ? 'Login' : 'Sign up'),
                     onPressed: _trySubmit,
                   ),
-                  FlatButton(
+                  if(!widget.isLoading) FlatButton(
                     child: Text(_isLogin ? 'Create new account' : ' I already have an account'),
                     textColor: Theme.of(context).primaryColor,
                     onPressed: () {
