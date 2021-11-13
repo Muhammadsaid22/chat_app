@@ -81,8 +81,9 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   TextFormField(
                     key: ValueKey('password'),
+                    obscureText: true,
                     decoration: InputDecoration(
-                      labelText: "Password"
+                      labelText: "Password",
                     ),
                     validator: (value) {
                       if(value!.isEmpty || value.length < 7) {
