@@ -4,7 +4,7 @@ import 'package:chat_app/widgets/pickers/user_image_picker.dart';
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
-  final void Function(String eMail, String userName, String password, bool isLogin, BuildContext ctx) submitFn;
+  final void Function(String eMail, String userName, String password, File image, bool isLogin, BuildContext ctx) submitFn;
   final bool isLoading;
   AuthForm(this.submitFn, this.isLoading);
 
@@ -42,11 +42,12 @@ class _AuthFormState extends State<AuthForm> {
     if(isValid) {
       _formKey.currentState!.save();
       widget.submitFn(
-        _userEmail.trim(),
-        _userName.trim(),
-        _userPassword.trim(),
-        _isLogin,
-        context
+          _userEmail.trim(),
+          _userName.trim(),
+          _userPassword.trim(),
+          _useImageFile,
+          _isLogin,
+          context
       );
     }
   }

@@ -17,9 +17,14 @@ class _UserImagePickerState extends State<UserImagePicker> {
   final ImagePicker _picker = ImagePicker();
 
   void _pickImage() async{
-    final pickedImageFile = await _picker.pickImage(source: ImageSource.camera);
+    final pickedImageFile = await _picker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 50,
+      maxWidth: 150,
+    );
+    File file = File(pickedImageFile!.path);
     setState(() {
-      _pickedImage = pickedImageFile as File;
+      _pickedImage = file;
     });
     widget.imageFn(_pickedImage!);
   }
@@ -37,7 +42,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
           textColor: Theme.of(context).primaryColor,
           icon: Icon(Icons.camera),
           label: Text('Add image'),
-          onPressed: () {},
+          onPressed: _pickImage,
         )
       ],
     );
