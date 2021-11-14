@@ -18,7 +18,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _auth = FirebaseAuth.instance;
   bool _isLoading = false;
 
-  void _submitAuthForm(String email, String name, String password, File image, bool islogin, BuildContext ctx) async {
+  void _submitAuthForm(String email, String name, String password, File? image, bool islogin, BuildContext ctx) async {
     UserCredential authResult;
     try {
       setState(() {
@@ -36,7 +36,7 @@ class _AuthScreenState extends State<AuthScreen> {
             .child('user_image')
             .child(authResult.user!.uid + 'jpg');
 
-        await ref.putFile(image);
+        await ref.putFile(image!);
 
         final url = await ref.getDownloadURL();
 

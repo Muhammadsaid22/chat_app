@@ -22,6 +22,7 @@ class _NewMessageState extends State<NewMessage> {
       'createdAt': Timestamp.now(),
       'userId': user.uid,
       'username': userData['username'],
+      'userImage': userData['image_url']
     });
     _controller.clear();
   }
@@ -29,26 +30,33 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 8),
-      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.all(6),
+      padding: EdgeInsets.all(2),
       child: Row(
         children: [
           Expanded(
-              child: TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  hintText: 'Send a message...',
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Theme.of(context).primaryColor),
                 ),
-                onChanged: (value) {
-                  setState(() {
-                    _enteredMessage = value;
-                  });
-                },
+                child: TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    hintText: 'Send a message...',
+                    border: InputBorder.none,
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _enteredMessage = value;
+                    });
+                  },
+                ),
               )
           ),
           IconButton(
             color: Theme.of(context).primaryColor,
-            icon: Icon(Icons.send),
+            icon: Icon(Icons.send, size: 32),
             onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
           ),
         ],
