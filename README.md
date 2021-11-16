@@ -1,16 +1,14 @@
 # chat_app
 
-Firebase, Image Upload, Push Notifications - Building a Chat App
+Chat App
 
-## Getting Started
+This project works with Firestore Database, Firebase storage and firebase authentication. 
+Image upload and push notifications also added.
+This app includes only one group chat. 
+Everyone who is authenticated can join  and enjoy chatting with others. This works in realtime.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="https://github.com/MrSobirov/great_places_app/blob/master/readme_asset/list.jpg" width="290" height="560" title="hover text">
+  <img src="https://github.com/MrSobirov/great_places_app/blob/master/readme_asset/new.jpg" width="290" height="560" alt="accessibility text">
+  <img src="https://github.com/MrSobirov/great_places_app/blob/master/readme_asset/map.jpg" width="290" height="560" alt="accessibility text">
+</p>
