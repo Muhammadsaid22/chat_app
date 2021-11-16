@@ -24,6 +24,9 @@ class _NewMessageState extends State<NewMessage> {
       'username': userData['username'],
       'userImage': userData['image_url']
     });
+    setState(() {
+      _enteredMessage = "";
+    });
     _controller.clear();
   }
 
@@ -36,6 +39,7 @@ class _NewMessageState extends State<NewMessage> {
         children: [
           Expanded(
               child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Theme.of(context).primaryColor),
