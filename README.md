@@ -1,4 +1,4 @@
-# chat_app
+# shut_app
 
 Chat App
 
